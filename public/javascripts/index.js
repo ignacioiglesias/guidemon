@@ -120,8 +120,8 @@
             this.options.appears.volume = 1;
         }
         // Keep clock ticking
-        var time = new Date();
         this.clockInterval = setInterval((function() {
+            var time = new Date();
             this.clock.textContent = [time.getHours(), time.getMinutes()].map(addLeadingZero).join(':');
         }).bind(this), 1000);
     };
