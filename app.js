@@ -11,12 +11,14 @@ var routes = require('./routes/index');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var url = 'https://www.getyourguide.com/touring.json?key=2Gr0p7z96D';
-var intervalTime = 5000;
+var url = 'https://www.getyourguide.com/touring.json?key=2Gr0p7z96D'; // API endpoint URL
+var spawnFrequence = 5000; // Spawn frequence
 
+// When a client connects to our Socket.IO server
 io.on('connection', function(socket) {
     console.log('Client connected');
 
+    // Sends customer information to our clients
     var spawn = function() {
         request({url: url, json: true}, function(error, response, body) {
             if (!error && response.statusCode === 200) {
@@ -26,7 +28,8 @@ io.on('connection', function(socket) {
     };
 
     spawn();
-    var intervalId = setInterval(spawn, intervalTime);
+
+    var intervalId = setInterval(spawn, spawnFrequence);
     socket.on('disconnect', function() {
         console.log('Client Disconnected');
         if (intervalId) {

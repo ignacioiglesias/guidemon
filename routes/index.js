@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {
-      title: 'Guidémon — Gotta Tour \'em All',
+      title: 'Guidémon — Gotta Guide \'em All',
       mapsKey: 'AIzaSyA5_3Cz9jzmlRsqt3S1IdvHaZzAJNnpDB8'
   });
 });
