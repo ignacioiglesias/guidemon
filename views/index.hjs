@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1 class="guidemon-logo">Guidémon</h1>
+        <img class="get-your-guide-logo" src="https://cdn.getyourguide.com/static/current/customer/desktop/cached/gyg-logo.svg" alt="GetYourGuide">
         <time class="guidemon-clock js-clock"></time>
         <div class="guidemon-info-wrapper">
             <div class="guidemon-info guidemon-info--customer-first-name js-attribute" data-guidemon-attribute="customerFirstName"></div>
@@ -16,6 +17,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="/javascripts/index.js"></script>
         <script>
+            // This is the callback we execute when Google Maps is ready:
             GuideClient.startClient = function() {
                 var client = new GuideClient({
                     socket: io(),
@@ -32,7 +34,7 @@
                                 featureType: "all",
                                 elementType: "labels",
                                 stylers: [
-                                  { visibility: "off" }
+                                  { visibility: "off" },
                                 ]
                               },
                               {
@@ -42,11 +44,35 @@
                                   { visibility: "off" }
                                 ]
                               },
+                              {
+                                featureType: "poi",
+                                elementType: "geometry",
+                                stylers: [
+                                  { visibility: "off" }
+                                ]
+                              },
+                              {
+                                featureType: "administrative.country",
+                                elementType: "stroke",
+                                stylers: [
+                                  { weight: 2 },
+                                  { hue: '#a07'}
+
+                                ]
+                              },
+                              {
+                                featureType: "landscape",
+                                elementType: "geometry",
+                                stylers: [
+                                  { visibility: "simplified" }
+                                ]
+                              },
                                  {
                                   stylers: [
                                     { hue: '#00ffe6' },
                                     { saturation: -20 },
-                                    { lightness: -70 }
+                                    { lightness: -80},
+                                    { 'invert-lightness': true}
                                   ]
                                 }
                         ]

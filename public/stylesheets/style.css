@@ -112,3 +112,10 @@ body {
     font-size: 2em;
     opacity: .8;
 }
+
+.get-your-guide-logo {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    z-index: 1;
+}
