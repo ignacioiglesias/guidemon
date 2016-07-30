@@ -38,7 +38,7 @@
                         } else if(field.textContent.length === value.length) {
                             clearInterval(writeInterval);
                         }
-                    }).bind(this), 60);
+                    }).bind(this), 30);
                 }
             }
         }, this);
