@@ -3,6 +3,17 @@
  */
 (function(root) {
     /**
+     * Convers DOM array-like object to real arrays. 
+     */
+    function toArray(obj) {
+        var array = [];
+        // iterate backwards ensuring that length is an UInt32
+        for (var i = obj.length >>> 0; i--;) { 
+            array[i] = obj[i];
+        }
+        return array;
+    }
+    /**
      * Returns an integer between `min` and `max`.
      */
     function getRandomInt(min, max) {
@@ -40,7 +51,7 @@
         this.options.owner.fields.forEach(function(field) {
             var name = field.getAttribute('data-guidemon-attribute');
             var value = name ? this.options.attrs[name] : null;
-               
+
             // For `<img />` elements, we change the `src` attribute
             if (field instanceof HTMLImageElement && value) {
                 field.classList.add('guidemon-loading');
@@ -105,7 +116,7 @@
      * Keeps the clock updated
      */
     GuideClient.prototype.render = function() {
-        this.fields = this.options.el.querySelectorAll('.js-attribute');
+        this.fields = toArray(this.options.el.querySelectorAll('.js-attribute'));
         this.clock = this.options.el.querySelector('.js-clock');
         this.map = new google.maps.Map(this.options.el.querySelector('.js-map'),this.options.mapOptions);
         // Listen to `spwan` events coming from our Socket.IO server

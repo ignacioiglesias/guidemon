@@ -14,28 +14,17 @@ var io = require('socket.io')(http);
 var url = 'https://www.getyourguide.com/touring.json?key=2Gr0p7z96D'; // API endpoint URL
 var spawnFrequence = 5000; // Spawn frequence
 
+function spawn() {
+    request({url: url, json: true}, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            io.emit('spawn', body);
+        }
+    });
+}
+var spawnInterval = setInterval(spawn, spawnFrequence);
 // When a client connects to our Socket.IO server
 io.on('connection', function(socket) {
     console.log('Client connected');
-
-    // Sends customer information to our clients
-    var spawn = function() {
-        request({url: url, json: true}, function(error, response, body) {
-            if (!error && response.statusCode === 200) {
-                io.emit('spawn', body);
-            }
-        });
-    };
-
-    spawn();
-
-    var intervalId = setInterval(spawn, spawnFrequence);
-    socket.on('disconnect', function() {
-        console.log('Client Disconnected');
-        if (intervalId) {
-            clearInterval(intervalId);
-        }
-    });
 });
 
 // view engine setup
