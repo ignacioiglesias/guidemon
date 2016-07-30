@@ -17,12 +17,22 @@ html, body {
     pointer-events: none;
 }
 
+body {
+    font-size: 2vw;
+}
+
+@media screen and (min-width: 640px) {
+    body {
+        font-size: 1.8vh;
+    }
+}
+
 .guidemon-logo {
     position: absolute;
-    top: .5em;
-    right: .5em;
+    top: 3vh;
+    right: 3vw;
     z-index: 1;
-    font-size: 6vw;
+    font-size: 6em;
     font-family: 'pokemon-solid', sans-serif;
     margin: 0;
     color: #f6bd20;
@@ -37,16 +47,16 @@ html, body {
 .guidemon-info-wrapper {
     box-sizing: border-box;
     position: absolute;
-    right: 5%;
-    bottom: 2.5%;
-    left: 5%;
+    right: 5vw;
+    bottom: 2.5vw;
+    left: 5vw;
     font-family: gameboy, 'Helvetica Neue', arial, sans-serif;
-    font-size: 2vw;
+    font-size: 2em;
     background-color: rgba(255, 255, 255, .75);
     border-radius: .75em;
     box-shadow: 0 0 5px rgba(0, 0, 10, .5);
     z-index: 1;
-    width: 90%;
+    width: 90vw;
     padding: 2.5em;
 }
 
@@ -55,7 +65,7 @@ html, body {
 }
 
 .guidemon-info-wrapper, .guidemon-attraction-image {
-    border: .5em solid rgba(255, 255, 255, 1);
+    border: .5vw solid rgba(255, 255, 255, 1);
 }
 
 .guidemon-info--customer-first-name {
@@ -73,10 +83,10 @@ html, body {
     box-sizing: border-box;
     height: auto;
     position: absolute;
-    top: -7vw;
-    left: calc(50% - 7.5%);
-    width: 12vw;
-    height: 12vw;
+    top: -2.5em;
+    left: calc(50% - 2.5em);
+    width: 4.5em;
+    height: 4.5em;
     border-radius: 100%;
     transition: opacity .5s;
 }
@@ -87,8 +97,18 @@ html, body {
 
 .guidemon-info--title {
     color: #000;
-    font-size: 1em;
     line-height: 1.2;
     max-height: 2.4em;
     overflow-y: hiden;
+}
+
+.guidemon-clock {
+    position: absolute;
+    font-family: gameboy, sans-serif;
+    top: 4.5em;
+    right: 5.5em;
+    z-index: 2;
+    color: #fff;
+    font-size: 2em;
+    opacity: .8;
 }

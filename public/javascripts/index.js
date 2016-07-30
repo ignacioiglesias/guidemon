@@ -67,6 +67,7 @@
     };
     GuideClient.prototype.render = function() {
         this.fields = this.options.el.querySelectorAll('.js-attribute');
+        this.clock = this.options.el.querySelector('.js-clock');
         this.map = new google.maps.Map(this.options.el.querySelector('.js-map'),this.options.mapOptions);
         this.options.socket.on('spawn', this.spawnHandler.bind(this));
         if (this.options.ost) {
@@ -76,6 +77,10 @@
         if (this.options.appears) {
             this.options.appears.volume = 1;
         }
+        this.clockInterval = setInterval((function() {
+            var time = new Date();
+            this.clock.textContent = [time.getHours(), time.getMinutes()].join(':');
+        }).bind(this), 1000);
     };
     GuideClient.prototype.current = [];
     root.GuideClient = GuideClient;

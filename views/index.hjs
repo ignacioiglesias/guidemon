@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1 class="guidemon-logo">Guidémon</h1>
+        <time class="guidemon-clock js-clock"></time>
         <div class="guidemon-info-wrapper">
             <div class="guidemon-info guidemon-info--customer-first-name js-attribute" data-guidemon-attribute="customerFirstName"></div>
             <div class="guidemon-info guidemon-info--title js-attribute" data-guidemon-attribute="activityTitle"></div>
