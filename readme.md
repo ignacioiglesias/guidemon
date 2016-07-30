@@ -1,5 +1,7 @@
 # Guidémon
-Gotta Guide ‘em All
+> Gotta Guide ‘em All
+
+A web app that visualises what a random GetYourGuide customer is doing right now.
 
 ## Install
 `git clone https://github.com/ignacioiglesias/guidemon.git`
@@ -10,5 +12,5 @@ Gotta Guide ‘em All
 1. Start the server with NPM
 `npm start`
 
-2. Browse to: http://localhost:3000
+2. Browse to: [http://localhost:3000](http://localhost:3000)
 
