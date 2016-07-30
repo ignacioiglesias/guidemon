@@ -12,7 +12,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var url = 'https://www.getyourguide.com/touring.json?key=2Gr0p7z96D';
-var intervalTime = 2500;
+var intervalTime = 4000;
 
 io.on('connection', function(socket) {
     console.log('Client connected');
