@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'pokemon-solid';
+    src: url(/fonts/pokemon-solid.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'gameboy';
+    src: url(/fonts/gameboy.ttf);
+    font-weight: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.guidemon-logo {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    z-index: 1;
+    font-size: 6vw;
+    font-family: 'pokemon-solid', sans-serif;
+    margin: 0;
+    color: #f6bd20;
+    letter-spacing: .05em;
+    text-shadow: .07em .07em 0px #07c, .07em -.07em 0px #07c, 5px 5px 10px rgba(0, 0, 0, .5);
+}
+
+.guidemon-map {
+    height: 100%;
+}
+
+.guidemon-info-wrapper {
+    box-sizing: border-box;
+    position: absolute;
+    right: 5%;
+    bottom: 2.5%;
+    left: 5%;
+    font-family: gameboy, 'Helvetica Neue', arial, sans-serif;
+    font-size: 2vw;
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: .75em;
+    box-shadow: 0 0 5px rgba(0, 0, 10, .5);
+    z-index: 1;
+    width: 90%;
+    padding: 2.5em;
+}
+
+.guidemon-info {
+    font-weight: bold;
+}
+
+.guidemon-info-wrapper, .guidemon-attraction-image {
+    border: .5em solid rgba(255, 255, 255, 1);
+}
+
+.guidemon-info--customer-first-name {
+    text-transform: uppercase;
+    font-size: .75em;
+    margin-bottom: .5em;
+}
+
+.guidemon-info--customer-first-name:not(:empty):after {
+    content: ' is visiting:';
+}
+
+.guidemon-attraction-image {
+    display: block;
+    box-sizing: border-box;
+    height: auto;
+    position: absolute;
+    top: -7vw;
+    left: calc(50% - 7.5%);
+    width: 12vw;
+    height: 12vw;
+    border-radius: 100%;
+    transition: opacity .5s;
+}
+.guidemon-attraction-image:not([src]),
+.guidemon-loading {
+    opacity: 0;
+}
+
+.guidemon-info--title {
+    color: #000;
+    font-size: 1em;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow-y: hiden;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <h1 class="guidemon-logo">Guidémon</h1>
+        <div class="guidemon-info-wrapper">
+            <div class="guidemon-info guidemon-info--customer-first-name js-attribute" data-guidemon-attribute="customerFirstName"></div>
+            <div class="guidemon-info guidemon-info--title js-attribute" data-guidemon-attribute="activityTitle"></div>
+            <img class="guidemon-attraction-image js-attribute" data-guidemon-attribute="activityPictureUrl" />
+        </div>
+        <div class="guidemon-map js-map"></div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/javascripts/index.js"></script>
+        <script>
+            GuideClient.startClient = function() {
+                var client = new GuideClient({
+                    socket: io(),
+                    el: document.body,
+                    ost: new Audio('/sounds/into-the-palace.mp3'),
+                    appears: new Audio('/sounds/guidemon-appears.wav'),
+                    maxMarkersOnMap: 1,
+                    mapOptions: {
+                        center: {lat: 52.5200066, lng: 13.404954},
+                        zoom: 5,
+                        disableDefaultUI: true,
+                        styles: [
+                              {
+                                featureType: "all",
+                                elementType: "labels",
+                                stylers: [
+                                  { visibility: "off" }
+                                ]
+                              },
+                              {
+                                featureType: "road",
+                                elementType: "geometry",
+                                stylers: [
+                                  { visibility: "off" }
+                                ]
+                              },
+                                 {
+                                  stylers: [
+                                    { hue: '#00ffe6' },
+                                    { saturation: -20 },
+                                    { lightness: -70 }
+                                  ]
+                                }
+                        ]
+                    }
+                });
+
+                client.render();
+            };
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{mapsKey}}&callback=GuideClient.startClient"></script>
+    </body>
+</html>
