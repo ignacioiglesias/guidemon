@@ -3,6 +3,8 @@
 
 A web app that visualises what a random GetYourGuide customer is doing right now.
 
+Running Instance: [http://139.59.209.2/](http://139.59.209.2/)
+
 ## Try with one line.
 `git clone https://github.com/ignacioiglesias/guidemon.git guidemon-try && cd guidemon-try && npm install && npm start`
 
